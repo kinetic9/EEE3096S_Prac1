@@ -62,6 +62,7 @@ def main():
         GPIO.output(11, bin_value[1])
         GPIO.output(13, bin_value[2])
         print("going up..")
+        print(counter)
         time.sleep(1)
         #counter += 1
         #ind += 1
@@ -79,6 +80,7 @@ def main():
         GPIO.output(11, bin_value[1])
         GPIO.output(13, bin_value[2])
         print("going down..")
+        print(counter)
         time.sleep(1)
             
 

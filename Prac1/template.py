@@ -12,16 +12,27 @@ import time
 
 # Logic that you write
 def main():
+    # Using board pinouts
     GPIO.setmode(GPIO.BOARD)
+
+    # Set output pins (LEDs)
     GPIO.setup(7,GPIO.OUT)
 
-    GPIO.output(7, GPIO.LOW)
-    print("LED Off")
-    time.sleep(2)
+    # Set input pins (switches)
+    GPIO.setup(8 , GPIO.IN, GPIO.PUD_DOWN)
 
-    GPIO.output(7, GPIO.HIGH)
-    print("LED On")
-    time.sleep(2)
+    if (GPIO.input(8)):
+        # start this only when button is pressed
+
+        while True:
+            GPIO.output(7, GPIO.LOW)
+            print("LED Off")
+            time.sleep(2)
+
+            GPIO.output(7, GPIO.HIGH)
+            print("LED On")
+            time.sleep(2)
+   
 
 
 

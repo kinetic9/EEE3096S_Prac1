@@ -17,6 +17,8 @@ def main():
 
     # Set output pins (LEDs)
     GPIO.setup(7,GPIO.OUT)
+    GPIO.setup(11,GPIO.OUT)
+    GPIO.setup(13,GPIO.OUT)
 
     # Set input pins (switches)
     GPIO.setup(8 , GPIO.IN, GPIO.PUD_DOWN)
@@ -25,11 +27,11 @@ def main():
         # start this only when button is pressed
 
         while True:
-            GPIO.output(7, GPIO.LOW)
+            GPIO.output(13, GPIO.LOW)
             print("LED Off")
             time.sleep(2)
 
-            GPIO.output(7, GPIO.HIGH)
+            GPIO.output(13, GPIO.HIGH)
             print("LED On")
             time.sleep(2)
    

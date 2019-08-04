@@ -14,6 +14,50 @@ import itertools
 #counter
 counter = 0
 
+def down(a):
+    global counter
+    
+    if (counter > 0):
+        counter -= 1
+            
+    else:
+        counter = 7
+        
+    bin_value = list(bin(counter)[2:].zfill(3))
+    GPIO.output(7, eval(bin_value[0]))
+    GPIO.output(11, eval(bin_value[1]))
+    GPIO.output(13, eval(bin_value[2]))
+    print("going down..")
+    #time.sleep(1)
+
+def up(a):
+    
+    global counter
+    
+    if (counter < 7):
+        counter += 1
+            
+    else:
+        counter = 0
+        
+    bin_value = list(bin(counter)[2:].zfill(3))
+    
+        
+    print(bin_value)
+        #if (ind < 7):
+         #   print("loop done")
+                #num = itertools.product([0,1], repeat=3)
+            #ind = 0
+            #lst = list(numlst.pop())
+    GPIO.output(7, eval(bin_value[0]))
+    GPIO.output(11, eval(bin_value[1]))
+    GPIO.output(13, eval(bin_value[2]))
+    print("going up..")
+    print(counter)
+    
+    #time.sleep(1)
+        #ind += 1
+
 # Logic that you write
 def main():
     
@@ -39,48 +83,12 @@ def main():
     #numlst = []
     #for i in num:
       #  numlst.append(i)
-
-    if (GPIO.input(8)):
+    
+    GPIO.add_event_detect(8,GPIO.RISING, callback=up, bouncetime=300)
+    GPIO.add_event_detect(10,GPIO.RISING, callback=down, bouncetime=300)
         # start this only when button is pressed
         #ind = 0
-        
-        if (counter < 256):
-            counter += 1
-            
-        else:
-            counter = 0
-        
-        bin_value = list(bin(counter));
-        
-        #while True:
-        #if (ind < 7):
-         #   print("loop done")
-                #num = itertools.product([0,1], repeat=3)
-            #ind = 0
-            #lst = list(numlst.pop())
-        GPIO.output(7, bin_value[0])
-        GPIO.output(11, bin_value[1])
-        GPIO.output(13, bin_value[2])
-        print("going up..")
-        print(counter)
-        time.sleep(1)
-        #counter += 1
-        #ind += 1
-        
-    elif (GPIO.input(10)):
-        
-        if (counter > 0):
-            counter -= 1
-            
-        else:
-            counter = 255
-        
-        bin_value = list(bin(counter));
-        GPIO.output(7, bin_value[0])
-        GPIO.output(11, bin_value[1])
-        GPIO.output(13, bin_value[2])
-        print("going down..")
-        print(counter)
+    while True:
         time.sleep(1)
             
 

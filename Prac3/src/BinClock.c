@@ -75,12 +75,15 @@ int main(void){
 	for (;;){
 		//Fetch the time from the RTC
 		//Write your logic here
+			hours = getHours();
+			mins = getMins();
+			secs= getSecs();
 		
 		//Function calls to toggle LEDs
 		//Write your logic here
 		
 		// Print out the time we have stored on our RTC
-		printf("The current time is: %x:%x:%x\n", hours, mins, secs);
+		printf("The current time is: %d:%d:%d\n", hours, mins, secs);
 
 		//using a delay to make our program "less CPU hungry"
 		delay(1000); //milliseconds

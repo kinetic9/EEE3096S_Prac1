@@ -160,15 +160,7 @@ void int_to_bin_digit(unsigned int in, int count, int* out)
     }
 }
 
-void reverseArr(int arr[]){
-	int t, end, c; 
-	end = sizeof(arr) -1;
-	for (c= 0; c< sizeof(arr); c++){
-		t = arr[c];
-		arr[c] = arr[end];
-		arr[end]=t;	
-	}
-}
+// 
 // array
 
 void printArr(int arr[], int arrSize){
@@ -189,9 +181,9 @@ void lightHours(int units){
 	
 	//reverseArr(ans);
     //int count = 0;
-	printf("%d",units);
+	//printf("%d",units);
 	int_to_bin_digit(units,8,ans);
-	printArr(ans,8);
+	//printArr(ans,8);
 	digitalWrite(LEDS[0],ans[4]);
 	digitalWrite(LEDS[1],ans[5]);
 	digitalWrite(LEDS[2],ans[6]);

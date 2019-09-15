@@ -36,7 +36,7 @@ long L_IntruptTime=0;
 void play_pause_isr(void){ 
 printf("Interrupt Played"); 
 long interrupt_T= millis(); 
-if(interrupt_T-L_IntruptTime>200 ){ 
+if(interrupt_T-L_IntruptTime>250 ){ 
 playing=!playing ; 
 } 
 L_IntruptTime = interrupt_T;  
@@ -48,7 +48,7 @@ void stop_isr(void){
 
 printf("Interrupt Played"); 
 long interrupt_T= millis(); 
-if(interrupt_T-L_IntruptTime>200 ){ 
+if(interrupt_T-L_IntruptTime>250 ){ 
 stopped=!stopped;  
 
 } 
